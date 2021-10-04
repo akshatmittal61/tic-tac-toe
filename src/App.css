@@ -8,19 +8,7 @@
 
 :root{
   --bgcolor: #f0f0f0;
-  --bgcolor-100: #e1e1e1;
-  --bgcolor-400: #d2d2d2;
-  --bgcolor-700: #c3c3c3;
-  
   --tcolor: #121212;
-  --tcolor-100: #1d1d1d;
-  --tcolor-400: #333333;
-  --tcolor-700: #272727;
-
-  --back-shadow: rgba(0,0,0,0.2);
-  --back-shadow-light: rgba(0,0,0,0.1);
-  --transition-time: 200ms;
-
   --blue: #4285f4;
   --red: #ea4335;
   --yellow: #fbbc05;
@@ -139,7 +127,6 @@ body,#root{
   border-radius: 10px;
   background: linear-gradient(90deg ,var(--green) 4%,var(--blue) 0%) top/100% 34% no-repeat,linear-gradient(90deg ,var(--yellow) 50%,var(--blue) 0%) top/100% 82% no-repeat,linear-gradient( 90deg ,var(--yellow) 10%,var(--red) 0%) top/100% 100%;
   box-shadow: 0 10px 15px rgb(60 64 67 / 30%);
-  transition: background var(--transition-time) ease-in-out, box-shadow var(--transition-time) cubic-bezier(.4,0,1,1), transform var(--transition-time) ease-in-out;
 }
 .game-over-box{
   position: relative;
@@ -221,11 +208,11 @@ body,#root{
     height: 60%;
   }
   .game-over-text{
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 1rem 0;
   }
   .game-over-result{
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 1rem 0;
   }
 }
