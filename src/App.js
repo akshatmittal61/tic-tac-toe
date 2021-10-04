@@ -11,7 +11,7 @@ const App = () => {
   const [turn, setTurn] = useState(1);
   const [isGameOver, setIsGameOver] = useState(false);
   const [tick1, setTick1] = useState(false);
-  const [tick2, setTick2] = useState(false);
+  const [tick2, setTick2] = useState(true);
   const winningState = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
   const handleClick = (id) => {
     if (cells[id] !== 0) {
@@ -55,32 +55,32 @@ const App = () => {
     }
   }
   return (
-    <>
-      {
-        playGame ?
-          (<div className="wrapper">
-            {
-              !isGameOver ?
-                (<div className="grid">
-                  {
-                    allCells.map((cell, index) => (
-                      <div key={index} className="cell" onClick={() => handleClick(index)}>
-                        <div className={getClassName(cells[index])}></div>
-                      </div>
-                    ))
-                  }
-                </div>) :
-                (<div className="game-frame">
-                  <div className="game-box">
-                    <div className="game-over-text">Game Over</div>
-                    <div className="game-over-result">{`${turn === 1 ? "circle" : "cross"} wins`}</div>
-                  </div>
-                </div>)
-            }
-          </div>) :
-          <div className="wrapper">
-            <div className="game-frame">
-              <div className="game-box">
+    <div className="wrapper">
+      <div className="game-frame">
+        <div className="game-box">
+          {
+            playGame ?
+              (
+                !isGameOver ?
+                  (
+                    <div className="grid">
+                      {
+                        allCells.map((cell, index) => (
+                          <div key={index} className="cell" onClick={() => handleClick(index)}>
+                            <div className={getClassName(cells[index])}></div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                  ) :
+                  (
+                    <>
+                      <div className="game-over-text">Game Over</div>
+                      <div className="game-over-result">{`${turn === 1 ? "circle" : "cross"} wins`}</div>
+                    </>
+                  )
+              ) :
+              (
                 <form className="game-form" onSubmit={startGame}>
                   <div className="game-form-content">
                     <div className="game-form-title">Player 1 </div>
@@ -105,11 +105,11 @@ const App = () => {
                     <button className="game-start" type="submit">Start game</button>
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
-      }
-    </>
+              )
+          }
+        </div>
+      </div>
+    </div>
   )
 }
 

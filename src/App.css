@@ -206,8 +206,8 @@ body,#root{
   transform: rotate(-45deg);
 }
 .game-frame{
-  height: 80%;
-  width: 80%;
+  height: 90%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
