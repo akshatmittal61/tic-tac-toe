@@ -54,6 +54,12 @@ const App = () => {
       setTick2(false);
     }
   }
+  const restartGame = () => {
+    setPlayGame(false);
+    setIsGameOver(false);
+    setCells(allCells);
+    setTurn(1);
+  }
   return (
     <div className="wrapper">
       <div className="game-frame">
@@ -77,6 +83,7 @@ const App = () => {
                     <>
                       <div className="game-over-text">Game Over</div>
                       <div className="game-over-result">{`${turn === 1 ? "circle" : "cross"} wins`}</div>
+                      <button className="game-over-retry btn" onClick={restartGame}>Restart Game</button>
                     </>
                   )
               ) :
@@ -102,7 +109,7 @@ const App = () => {
                     </div>
                   </div>
                   <div className="game-form-button">
-                    <button className="game-start" type="submit">Start game</button>
+                    <button className="game-start btn" type="submit">Start game</button>
                   </div>
                 </form>
               )
