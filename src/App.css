@@ -10,6 +10,7 @@
   --bgcolor: #f0f0f0;
   --tcolor: #121212;
   --blue: #4285f4;
+  --blue-100: #bbdefb;
   --red: #ea4335;
   --yellow: #fbbc05;
   --green: #34a853;
@@ -34,6 +35,94 @@ body,#root{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.game-form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.game-form-content{
+  width: 100%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.game-form-title{
+  font-size: 6rem;
+  color: var(--red);
+  width: 100%;
+  height: 33%;
+  padding: 5rem 0 0 5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.game-form-groups{
+  font-size: 3rem;
+  color: var(--blue);
+  width: 75%;
+  height: 66%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+.game-form-group{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  cursor: url("./images/circle.png"),pointer;
+}
+.game-form-group>*{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.game-form-image{
+  width: 100px;
+  height: 100px;
+}
+.game-form-tick-image{
+  height: 50px;
+  width: 50px;
+  margin: 0 1rem 0 0;
+}
+.game-form-button{
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-form-button button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  font: inherit;
+  font-size: 1.75rem;
+  font-family: Cabin, sans-serif;
+  background-color: var(--bgcolor);
+  color: var(--red);
+  border: 5px solid var(--blue);
+  border-radius: 500px;
+  outline: none;
+  transition: all 200ms ease-in-out;
+}
+.game-form-button button:hover{
+  cursor: pointer;
+  background-color: var(--blue-100);
+  border: 5px solid var(--blue-100);
 }
 .grid{
   height: 600px;
@@ -116,7 +205,7 @@ body,#root{
   background-color: var(--red);
   transform: rotate(-45deg);
 }
-.game-over{
+.game-frame{
   height: 80%;
   width: 80%;
   display: flex;
@@ -128,7 +217,7 @@ body,#root{
   background: linear-gradient(90deg ,var(--green) 4%,var(--blue) 0%) top/100% 34% no-repeat,linear-gradient(90deg ,var(--yellow) 50%,var(--blue) 0%) top/100% 82% no-repeat,linear-gradient( 90deg ,var(--yellow) 10%,var(--red) 0%) top/100% 100%;
   box-shadow: 0 10px 15px rgb(60 64 67 / 30%);
 }
-.game-over-box{
+.game-box{
   position: relative;
   height: 99%;
   width: 99%;
@@ -176,8 +265,14 @@ body,#root{
   background-color: var(--scroll-700);
 }
 @media (min-width: 768px) and (max-width: 991.98px){
-  .game-over{
-    height: 50%;
+  .game-frame{
+    height: 75%;
+  }
+  .game-form-groups{
+    flex-flow: column;
+  }
+  .game-form-group{
+    width: 100%;
   }
   .game-over-text{
     font-size: 5rem;
@@ -188,6 +283,53 @@ body,#root{
   }
 }
 @media (max-width: 767.98px){
+  .game-frame{
+    height: 75%;
+  }
+  .game-form-title{
+    font-size: 3rem;
+    padding: 0;
+    justify-content: center;
+  }
+  .game-form-groups{
+    width: 100%;
+    flex-flow: column;
+    font-size: 2rem;
+    padding: 0;
+  }
+  .game-form-group{
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .game-form-image{
+    width: 50px;
+    height: 50px;
+  }
+  .game-form-tick-image{
+    height: 25px;
+    width: 25px;
+    margin: 0 0.5rem 0 0;
+  }
+  .game-form-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    font-size: 1.5rem;
+    font-family: Cabin, sans-serif;
+    background-color: var(--bgcolor);
+    color: var(--red);
+    border: 3px solid var(--blue);
+    border-radius: 500px;
+    outline: none;
+    transition: all 200ms ease-in-out;
+  }
+  .game-form-button button:hover{
+    cursor: pointer;
+    background-color: var(--blue-100);
+    border: 3px solid var(--blue-100);
+  }
   .grid{
     height: 300px;
     width: 300px;
@@ -203,9 +345,6 @@ body,#root{
   .cross::after{
     width: 7.5px;
     height: 75px;
-  }
-  .game-over{
-    height: 60%;
   }
   .game-over-text{
     font-size: 2.5rem;
